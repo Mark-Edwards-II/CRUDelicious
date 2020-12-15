@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CRUDelicious.Migrations
@@ -11,6 +12,8 @@ namespace CRUDelicious.Migrations
                 name: "Dishes",
                 columns: table => new
                 {
+                    DishId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ChefName = table.Column<string>(nullable: false),
                     DishName = table.Column<string>(nullable: false),
                     Calories = table.Column<string>(nullable: false),
@@ -21,7 +24,7 @@ namespace CRUDelicious.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dishes", x => x.ChefName);
+                    table.PrimaryKey("PK_Dishes", x => x.DishId);
                 });
         }
 

@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "New Dish";
+}
+@using CRUDelicious.Models
+@model Dish
+
+<div id="container">
+    <div class="link col-md-1">
+        <p><a href="/">Home</a></p>
+    </div>
+    <div class="row">
+        <h2>Item Name</h2>
+    </div>
+    <div id="row">
+        <p>Add By: @Model.ChefName </p>
+    </div>
+    <hr>
+    <div>
+        <p>Description: @Model.DishName </p>
+        <p>Calories: @Model.Calories </p>
+        <p>Tastiness: @Model.Tastiness </p>
+    </div>
+    <div>
+        <a href="delete/@Model.DishId" class="btn btn-primary">Delete</a>
+        <a href="/edit/@Model.DishId" class="btn btn-primary">Edit</a>
+    </div>
+</div>

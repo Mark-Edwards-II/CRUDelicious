@@ -12,6 +12,15 @@ a {
   color: #0366d6;
 }
 
+.hide {
+  display: none;
+}
+
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

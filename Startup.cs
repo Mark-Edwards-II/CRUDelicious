@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CRUDelicious.Context;
 using CRUDelicious.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,8 +26,8 @@ namespace CRUDelicious
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSession();
-            services.AddDbContext<MyContext>(options => options.UseMySql (Configuration["DBInfo:ConnectionString"]));
+            // services.AddSession();
+            services.AddDbContext<HomeContext>(options => options.UseMySql (Configuration["DBInfo:ConnectionString"]));
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
@@ -47,7 +48,7 @@ namespace CRUDelicious
 
             app.UseAuthorization();
 
-            app.UseSession();
+            // app.UseSession();
 
             app.UseMvc();
 

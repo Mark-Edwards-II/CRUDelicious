@@ -6,6 +6,9 @@ namespace CRUDelicious.Models
     public class Dish
     {
         [Key]
+        public int DishId {get;set;}
+
+
         [Required]
         [Display(Name ="Chef's name.")] 
         public string ChefName {get;set;}

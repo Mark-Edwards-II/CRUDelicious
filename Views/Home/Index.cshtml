@@ -1,8 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using CRUDelicious.Models
+@model List<Dish>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="row">
+        <h2>Welcome to CRUDelicious</h2>
+    </div>
+    <div class="text-center d-flex justify-content-between">
+
+        <table>
+            <thead>
+                <th>Dishes</th>
+            </thead>
+            <tbody>
+            @foreach(Dish d in Model)
+            {
+                <tr>
+                    <td>@d.DishName </td>
+                    <td><a href="edit/@d.DishId">Edit</a></td>
+                    <td><a href="delete/@d.DishId">Delete</a></td>
+                </tr>
+                
+            }
+
+            </tbody>
+        </table>
+        <ul class="d-flex justify-context-evenly" >
+
+        </ul>
+            <div class="myDIV">
+                <div class="hide">
+                    <a class="hide" href="/new">Add a Dish</a>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <p>Display Recent Dishes</p>
+    </div>
 </div>
